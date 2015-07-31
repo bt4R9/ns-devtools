@@ -1,23 +1,26 @@
 {
   "manifest_version": 2,
 
-  "name": "ns-tools",
+  "name": "ns-devtools",
   "description": "Shows noscript application debug information",
   "version": "0.0.1",
 
-  "devtools_page": "devtools.html",
+  "devtools_page": "pages/devtools/devtools.html",
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [ "pages/background/background.js" ]
   },
 
-  "web_accessible_resources" : ["content-script.js", "injection.js"],
+  "web_accessible_resources" : [
+    "pages/content-script/content-script.js",
+    "pages/content-script/injection.js"
+  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content-script.js"],
+      "matches": [ "<all_urls>" ],
+      "js": [ "pages/content-script/content-script.js" ],
       "run_at": "document_end"
     }
   ]

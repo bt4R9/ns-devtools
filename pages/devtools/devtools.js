@@ -4,15 +4,9 @@
         var node = $0;
         var className = typeof node.className !== 'string' ? '' : node.className;
 
-        if (className.indexOf('ns-view') !== -1) {
+        if (className.indexOf('ns-view') !== -1 && className.indexOf('box') === -1) {
             var key = node.getAttribute('data-key');
-
-            var models = window.__NSDEVTOOLS.views[key].models;
-
-            return {
-                view: window.__NSDEVTOOLS.views[key],
-                models: models
-            }
+            return window.__NSDEVTOOLS.views[key];
         }
     };
 
